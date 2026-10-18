@@ -1,0 +1,12 @@
+jegjasperbarajan@ubuntu-jeg~DesktopFor Testing Codes$ .partial_sum_A
+The Sum 1 5000000
+The Final Sum 5000000
+Execution time 1 milliseconds
+jegjasperbarajan@ubuntu-jeg~DesktopFor Testing Codes$ .partial_sum_B
+The Sum 1 1250000
+The Sum 2 1250000
+The Sum 3 1250000
+The Sum 4 1250000
+The Final Sum 5000000
+Execution time 0 milliseconds
+jegjasperbarajan@ubuntu-jeg~DesktopFor Testing Codes$

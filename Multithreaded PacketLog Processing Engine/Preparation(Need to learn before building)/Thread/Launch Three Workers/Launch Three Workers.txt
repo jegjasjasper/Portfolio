@@ -1,0 +1,29 @@
+#include <iostream>
+#include <thread>
+
+void worker(int id){
+
+	std::cout << "Worker " << id << " is running\n";	
+
+}
+
+
+int main(){
+
+	std::cout << "Main thread started\n";
+
+	std::thread w1(worker, 1);
+	std::thread w2(worker, 2);
+	std::thread w3(worker, 3);
+
+	w1.join();
+	w2.join();
+	w3.join();
+
+	std::cout << "All workers finished\n";
+
+
+	return 0;
+
+
+}

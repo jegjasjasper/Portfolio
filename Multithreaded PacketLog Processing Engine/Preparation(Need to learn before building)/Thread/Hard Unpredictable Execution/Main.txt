@@ -1,0 +1,40 @@
+#include <iostream>
+#include <chrono>
+#include <thread>
+
+void task(int id){
+
+	std::cout << "Thread " << id << ": Step 1\n";
+	std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	std::cout << "Thread " << id << ": Step 2\n";
+	std::this_thread::sleep_for(std::chrono::milliseconds(50));
+	std::cout << "Thread " << id << ": Step 3\n";
+	std::this_thread::sleep_for(std::chrono::milliseconds(150));
+	std::cout << "Thread " << id << ": Step 4\n";
+	std::this_thread::sleep_for(std::chrono::milliseconds(20));
+	std::cout << "Thread " << id << ": Step 5\n";
+	std::this_thread::sleep_for(std::chrono::milliseconds(80));
+
+}
+
+int main(){
+
+
+	std::thread t1(task, 1);
+	std::thread t2(task, 2);
+	std::thread t3(task, 3);
+	std::thread t4(task, 4);
+	std::thread t5(task, 5);
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+	t5.join();
+
+
+
+	return 0;
+
+
+}

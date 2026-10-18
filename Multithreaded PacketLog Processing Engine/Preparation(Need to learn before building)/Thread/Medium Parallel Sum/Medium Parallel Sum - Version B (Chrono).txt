@@ -1,0 +1,83 @@
+#include <iostream>
+#include <thread>
+#include <vector>
+#include <cstddef>
+#include <chrono>
+
+
+
+void partial_sum(
+    const std::vector<int>& data,
+    size_t start,
+    size_t end,
+    long long& result
+){
+
+
+	for(size_t i = start; i < end; i++){
+		result += data[i];
+	}
+	
+
+
+}
+
+
+int main(){
+
+	std::vector<int> A;
+	A.reserve(1000000);	
+
+	long long S1 = 0;
+	long long S2 = 0;
+	long long S3 = 0;
+	long long S4 = 0;
+	long long S = 0;
+
+
+	for(size_t i = 0; i < 1000000; i++){
+	
+			A.push_back(5);
+
+	}
+
+	auto start = std::chrono::steady_clock::now();
+
+
+	// for(int i = 0; i < 10000000; i++){
+
+	std::thread T1(partial_sum, std::cref(A), 0, 250000, std::ref(S1));
+	std::thread T2(partial_sum, std::cref(A),250000, 500000, std::ref(S2));
+	std::thread T3(partial_sum, std::cref(A),500000, 750000, std::ref(S3));
+	std::thread T4(partial_sum, std::cref(A),750000, 1000000, std::ref(S4));
+
+	T1.join();
+	T2.join();
+	T3.join();
+	T4.join();
+
+
+	// }
+
+
+
+	auto end = std::chrono::steady_clock::now();
+
+	S = S1 + S2 + S3 + S4;
+
+	auto elapsed = end - start;
+
+	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(elapsed);
+
+	std::cout << "The Sum 1: " << S1 << "\n";
+	std::cout << "The Sum 2: " << S2 << "\n";
+	std::cout << "The Sum 3: " << S3 << "\n";
+	std::cout << "The Sum 4: " << S4 << "\n";
+	std::cout << "The Final Sum: " << S << "\n";
+	std::cout << "Execution time: " << duration.count() << " milliseconds\n";
+
+	return 0;
+
+
+
+}
