@@ -26,12 +26,12 @@ int main() {
     // TODO: Create four threads.
     // Each should call deposit(depositAmount, repetitions).
     for(int i = 0; i < threadCount; i++){
-        workers.embrace_back(deposit, depositAmount, repetitions);
+        workers.emplace_back(deposit, depositAmount, repetitions);
     }
 
     // TODO: Join every thread.
     for(auto &w : workers){
-        t.join();
+        w.join();
     }
 
     std::cout << "Final balance: " << balance << '\n';
