@@ -16,7 +16,7 @@ void sellProducts(int quantity, int repetitions) {
         // 1. Lock the mutex.
         inventoryMutex.lock();
         // 2. Check whether enough inventory exists.
-        if(inventory < 0){
+        if(inventory > 0){
         // 3. If enough, update inventory and totalSold.
         inventory -= quantity;
         totalSold += quantity;
