@@ -13,8 +13,12 @@ void withdrawMoney(int amount) {
     // TODO:
     // 1. Acquire the mutex using unique_lock.
     // 2. Wait until balance >= amount.
+    if(balance >= amount) {
     // 3. Withdraw the requested amount.
+    balance -= amount;
     // 4. Print the remaining balance.
+    std::cout << "\nbalance: " << balance;
+    }
 }
 
 void addMoney(int amount) {
