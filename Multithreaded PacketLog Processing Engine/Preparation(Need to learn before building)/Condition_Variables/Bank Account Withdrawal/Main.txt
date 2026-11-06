@@ -15,9 +15,9 @@ void withdrawMoney(int amount) {
     // 2. Wait until balance >= amount.
     if(balance >= amount) {
     // 3. Withdraw the requested amount.
-    balance -= amount;
+        balance -= amount;
     // 4. Print the remaining balance.
-    std::cout << "\nbalance: " << balance;
+        std::cout << "\nbalance: " << balance;
     }
 }
 
@@ -25,7 +25,9 @@ void addMoney(int amount) {
     // TODO:
     // 1. Acquire the mutex.
     // 2. Deposit the money.
+    balance += amount;
     // 3. Print the updated balance.
+    std::cout << "\nbalance: " << balance;
     // 4. Unlock the mutex.
     // 5. Notify the waiting thread.
 }
