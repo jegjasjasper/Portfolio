@@ -1,0 +1,38 @@
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+
+int balance = 0;
+
+std::mutex mtx;
+std::condition_variable cv;
+
+void withdrawMoney(int amount) {
+    // TODO:
+    // 1. Acquire the mutex using unique_lock.
+    // 2. Wait until balance >= amount.
+    // 3. Withdraw the requested amount.
+    // 4. Print the remaining balance.
+}
+
+void addMoney(int amount) {
+    // TODO:
+    // 1. Acquire the mutex.
+    // 2. Deposit the money.
+    // 3. Print the updated balance.
+    // 4. Unlock the mutex.
+    // 5. Notify the waiting thread.
+}
+
+int main() {
+    std::thread t1(withdrawMoney, 500);
+    std::thread t2(addMoney, 500);
+
+    // TODO: Join both threads.
+
+    std::cout << "Final balance: " << balance << '\n';
+
+    return 0;
+}
