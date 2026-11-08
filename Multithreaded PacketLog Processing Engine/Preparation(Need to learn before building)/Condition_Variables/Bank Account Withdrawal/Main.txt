@@ -42,7 +42,7 @@ int main() {
     t1.join();
     t2.join();
 
-    std::cout << "Final balance: " << balance << '\n';
+    std::cout << "\nFinal balance: " << balance;
 
     return 0;
 }
