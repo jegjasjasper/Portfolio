@@ -4,7 +4,25 @@
 class Particle {
 public:
 
+    int x;
+    int y;
+    int vx;
+    int vy;
+    int mass;
 
+    particle(int p){
+
+        std::cout << "Particle created: " << p << '\n';
+
+    }
+
+    ~particle(int p){
+        
+        std::cout << "Particle destroyed: " << int p;     
+
+    }
+
+    
 
 
 };
