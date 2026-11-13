@@ -12,7 +12,7 @@ bool shutdownWorkers = false;
 std::mutex mtx;
 std::condition_variable cv;
 
-void worker(int id) {
+void worker(/*int id*/) {
     while (true) {
         std::unique_lock<std::mutex> lock(mtx);
 
@@ -64,7 +64,7 @@ int main() {
     std::vector<std::thread> workers;
 
     for (int i = 0; i < 4; i++) {
-        workers.emplace_back(worker, i + 1);
+        workers.emplace_back(worker/*, i + 1*/);
     }
 
     std::thread producer(controller);

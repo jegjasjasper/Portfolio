@@ -10,12 +10,12 @@ int balance = 0;
 std::mutex mtx;
 std::condition_variable cv;
 
-void withdrawMoney(int id, int amount) {
+void withdrawMoney(/*int id,*/ int amount) {
     // TODO:
     // Acquire unique_lock.
     std::unique_lock<std::mutex> ul(mtx);
     // Wait until balance >= amount.
-    cv.wait(ul, [amount] {    return balance >= amount;   };
+    cv.wait(ul, [amount] {    return balance >= amount;   });
     // Deduct the amount.
     balance -= amount;
     // Print the transaction.
@@ -42,9 +42,9 @@ void depositMoney() {
 }
 
 int main() {
-    std::thread t1(withdrawMoney, 1, 300);
-    std::thread t2(withdrawMoney, 2, 500);
-    std::thread t3(withdrawMoney, 3, 700);
+    std::thread t1(withdrawMoney/*, 1*/, 300);
+    std::thread t2(withdrawMoney/*, 2*/, 500);
+    std::thread t3(withdrawMoney/*, 3*/, 700);
 
     std::thread depositor(depositMoney);
 
