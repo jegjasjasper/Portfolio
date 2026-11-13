@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 
 class Particle {
@@ -10,13 +11,13 @@ public:
     int vy;
     int mass;
 
-    particle(int p){
+    Particle(int p){
 
         std::cout << "Particle created: " << p << '\n';
 
     }
 
-    ~particle(int p){
+    ~Particle(){
         
         std::cout << "Particle destroyed: " << int p;     
 
@@ -27,9 +28,29 @@ public:
 
 };
 
+class ParticleSystem {
+public:
+    std::vector<Particle> particle;
+
+    void addParticle(){
+
+    for(auto* p : particle){
+        total += p.mass;
+    }
+
+
+    }
+
+
+}
+
 
 
 int main(){
+
+    Particle p1(1);
+    Particle p2(2);
+    Particle p3(3);
 
 
 
